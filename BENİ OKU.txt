@@ -1,0 +1,41 @@
+-MYSQL KLASÖRÜNÜN İÇİNDE JAR DOSYASI BULUNMAKTADIR.
+-MYSQL CLASSINDAN MYSQL KULLANICI ADI ŞİFRENİZİ GÜNCELLEYİNİZ.
+-AŞŞAĞIDAKİ KOMUTLARI MYSQLE GİRİNİZ.
+
+CREATE DATABASE ANIMALSDB;
+USE ANIMALSDB;
+
+CREATE TABLE `animals` (
+  `ID` int NOT NULL AUTO_INCREMENT, 
+  `NAME` varchar(255) NOT NULL,
+  `KIND` varchar(255) DEFAULT NULL,
+  `AGE` int DEFAULT NULL,
+  `GENDER` tinyint(1) DEFAULT NULL,
+  `IS_DOG` tinyint(1) NOT NULL,
+  `URL` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+);
+
+CREATE TABLE `medicines` (
+  `ID` int DEFAULT NULL,
+  `NAME` varchar(255) DEFAULT NULL,
+  `DATE` varchar(32) DEFAULT NULL,
+  `IS_VACCINE` tinyint(1) DEFAULT NULL
+);
+
+CREATE TABLE `requests` (
+  `USER_ID` int DEFAULT NULL,
+  `ANIMAL_ID` int DEFAULT NULL,
+  `IS_PENDING` tinyint(1) DEFAULT '1',
+  `IS_APPROVED` tinyint(1) DEFAULT '0',
+  `REQ_DATE` datetime DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) DEFAULT NULL,
+  `userpassword` varchar(64) DEFAULT NULL,
+  `is_admin` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+INSERT INTO `users` VALUES (1,'admin','admin',1),(2,'standart','standart',0);
